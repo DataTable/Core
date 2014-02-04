@@ -1,0 +1,17 @@
+{
+    "name": "datatable/core",
+    "description": "DataTable core and command-line tools",
+    "homepage": "http://www.github.com/datatable/core",
+    "keywords": ["php", "data", "core", "import", "export", "datatable"],
+    "type": "library",
+    "minimum-stability": "dev" ,
+    "require": {
+        "symfony/console": "2.4.*@dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "DataTable\\": "src/"
+        }
+    },
+    "license": "MIT"
+}
