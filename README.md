@@ -35,7 +35,7 @@ use DataTable\Core\Table;
 use DataTable\Core\Reader\Csv as CsvReader;
 use DataTable\Core\Writer\AsciiTable as AsciiTableWriter;
 
-// Create the Dataset Table object
+// Create the DataTable\Core\Table object
 $table = new Table();
 $table->setName(basename($inputfile)); // Give it a user-friendly name
 
@@ -58,13 +58,13 @@ As you can see, the `DataTable\Core\Table` object is used to load, and then expo
 
 If you need to export data from your system into different formats, then all you need to do is
 
-1. Load the data from your system into a Dataset Table
+1. Load the data from your system into a DataTable
 2. Use one of the many Writers to export the data into different formats
 
 If you need to import data into your system from diffent formats, then all you need to do is:
 
-1. Use one of the many Readers to import the data from any supported format into a Dataset Table
-2. Write an importer for data from a Dataset Table into your system
+1. Use one of the many Readers to import the data from any supported format into a DataTable
+2. Write an importer for data from a DataTable into your system
 
 
 
