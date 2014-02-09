@@ -32,6 +32,7 @@ If you write your exporter based on a DataTable (instead of .csv, .xls, .yaml, e
 
 ```php
 use DataTable\Core\Table;
+use DataTable\Core\Writer\Csv as CsvWriter;
 
 $table = new Table();
 $table->setName("My data"); // Give it a user-friendly name
@@ -39,14 +40,20 @@ $table->setName("My data"); // Give it a user-friendly name
 $namecolumn = $table->getColumnByName("name");
 $emailcolumn = $table->getColumnByName("email");
 
+// get the first row (index 0)
 $row = $table->getRowByIndex(0);
 
+// get a cell by columnname:
 $cell = $row->getCellByColumnName("name");
+// assign value to the cell
 $cell->setValue("Joe Johnson");
 
+// do the same for the second cell (email)
 $cell = $row->getCellByColumnName("email");
 $cell->setValue("joe@johnson.web");
 
+
+// do the same for a second row (index 1)
 $row = $table->getRowByIndex(1);
 
 $cell = $row->getCellByColumnName("name");
@@ -55,10 +62,40 @@ $cell->setValue("John Jackson");
 $cell = $row->getCellByColumnName("email");
 $cell->setValue("john@jackson.web");
 
+
+// use a writer to export the datatable to a .csv file
+$writer = new CsvWriter();
+$output = $writer->write($table);
+echo $output;
+
+```
+
+## How to read data from code:
+
+```php
+use DataTable\Core\Table;
+use DataTable\Core\Reader\Csv as CsvReader;
+
+// Create the DataTable\Core\Table object
+$table = new Table();
+$table->setName("My user data"); // Give it a user-friendly name
+$reader->loadFile($table, "users.csv");
+
+// Loop through all the rows in $table
+
+foreach($table->getRows() as $row) {
+
+  // Read field contents from the row by columnname    
+  $name = $row->getValueByColumnName("name");
+  $email = $row->getValueByColumnName("email");
+    
+  // use the data, for example:
+  // ensure database record for user with name+email
+}
 ```
 
 
-## How to use the readers and writers
+## How to use the readers and writers for importing/exporting data
 
 ```php
 use DataTable\Core\Table;
@@ -72,10 +109,9 @@ $table->setName(basename($inputfile)); // Give it a user-friendly name
 // Instantiate a Reader, in this case a .csv file reader
 $reader = new CsvReader();
 $reader->setSeperator(',');
-$reader->loadFile($table, $inputfile, 8);
+$reader->loadFile($table, $inputfile);
 
 // The $table now contains data from the .csv file
-
 
 // Instantiate a Writer, in this case an Ascii table writer
 $writer = new AsciiTableWriter();
