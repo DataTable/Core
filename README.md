@@ -28,7 +28,37 @@ If you write your importer based on a DataTable (instead of .csv, .xls, .yaml, e
 
 If you write your exporter based on a DataTable (instead of .csv, .xls, .yaml, etc directly), then you can write your exporter once, and support *all* export formats that DataTable supports.
 
-## How to use it
+## How to load data into a Table from code:
+
+```php
+use DataTable\Core\Table;
+
+$table = new Table();
+$table->setName("My data"); // Give it a user-friendly name
+
+$namecolumn = $table->getColumnByName("name");
+$emailcolumn = $table->getColumnByName("email");
+
+$row = $table->getRowByIndex(0);
+
+$cell = $row->getCellByColumnName("name");
+$cell->setValue("Joe Johnson");
+
+$cell = $row->getCellByColumnName("email");
+$cell->setValue("joe@johnson.web");
+
+$row = $table->getRowByIndex(1);
+
+$cell = $row->getCellByColumnName("name");
+$cell->setValue("John Jackson");
+
+$cell = $row->getCellByColumnName("email");
+$cell->setValue("john@jackson.web");
+
+```
+
+
+## How to use the readers and writers
 
 ```php
 use DataTable\Core\Table;
