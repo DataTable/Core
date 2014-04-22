@@ -7,6 +7,7 @@ class Row
     private $index;
     private $cell = array();
     private $table;
+    private $key;
 
     public function __construct($table)
     {
@@ -49,6 +50,16 @@ class Row
     {
         $cell = $this->getCellByColumnName($name);
         return $cell->getValue();
+    }
+    
+    public function setKey($key)
+    {
+        $this->key = $key;
+    }
+    
+    public function getKey()
+    {
+        return $this->key;
     }
     
 }
