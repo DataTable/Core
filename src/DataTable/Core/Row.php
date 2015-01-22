@@ -24,7 +24,7 @@ class Row
         return $this->index;
     }
 
-    public function getCells($cell)
+    public function getCells()
     {
         return $this->cell;
 
@@ -51,15 +51,15 @@ class Row
         $cell = $this->getCellByColumnName($name);
         return $cell->getValue();
     }
-    
+
     public function setKey($key)
     {
         $this->key = $key;
     }
-    
+
     public function getKey()
     {
         return $this->key;
     }
-    
+
 }
