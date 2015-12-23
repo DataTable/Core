@@ -50,12 +50,14 @@ class Csv
                 $values = $this->lineToFields($line);
                 $i2=0;
                 foreach($values as $value) {
-                    $column = $table->getColumnByIndex($i2);
-                    if (strlen($value)>$column->getDisplayWidth()) {
-                        $column->setDisplayWidth(strlen($value));
+                    if ($value!='') {
+                        $column = $table->getColumnByIndex($i2);
+                        if (strlen($value)>$column->getDisplayWidth()) {
+                            $column->setDisplayWidth(strlen($value));
+                        }
+                        $cell = $row->getCellByIndex($i2);
+                        $cell->setValue($value);
                     }
-                    $cell = $row->getCellByIndex($i2);
-                    $cell->setValue($value);
                     $i2++;
                 }
                 $i++;
