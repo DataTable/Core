@@ -83,4 +83,10 @@ class Table
         }
         return $this->row[$i];
     }
+    
+    public function getRowCount()
+    {
+        $rows = $this->getRows();
+        return count($rows);
+    }
 }
