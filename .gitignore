@@ -1,2 +1,35 @@
-/nbproject/*
-*~
+# Managed by package managers
+/vendor/
+/assets/bower/
+
+# Composer PHAR
+/composer.phar
+
+# Assets
+web/bower
+
+# Mac
+.DS_Store
+
+# Project
+*.sublime-*
+### JetBrains template
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio
+
+*.iml
+
+## Directory-based project format:
+.idea/
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+
+test/nginx/*.conf
+!test/nginx/.gitkeep
+
+/.settings
+.buildpath
+.project
+.tags
+.tags1
+npm-debug.log
