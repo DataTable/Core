@@ -5,8 +5,8 @@
     "keywords": ["php", "data", "core", "import", "export", "datatable"],
     "type": "library",
     "minimum-stability": "dev" ,
-    "require": {
-        "symfony/console": "~2.4"
+    "require-dev": {
+        "symfony/console": "~3.0"
     },
     "autoload": {
         "psr-0": {
